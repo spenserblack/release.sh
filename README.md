@@ -9,5 +9,5 @@ support Markdown, it temporarily changes `core.commentChar` in the git
 configuration to `;`.
 
 When creating pre-releases, you can set `RELEASESH_PRERELEASE` to `1`.
-If you're *not* creating a pre-release, then `RELEASE_NOTES` the script
-will clear the contents of that file and commit the reset.
+If you're *not* creating a pre-release, then the script will clear the contents
+of `RELEASE_NOTES` and commit newly empty version.
