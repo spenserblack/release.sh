@@ -21,6 +21,8 @@
 # Generates a release tag from RELEASE_NOTES, temporarily setting
 # comments to ; to permit Markdown, creates the tag, then
 # clears RELEASE_NOTES and resets git comments.
+#
+# source: https://github.com/spenserblack/release.sh
 set -e
 
 TAG_NAME=$1
