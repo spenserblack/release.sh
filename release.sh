@@ -29,6 +29,11 @@ TAG_NAME=$1
 TAG_TARGET=$2
 RELEASESH_PRERELEASE=${RELEASESH_PRERELEASE:-0}
 
+# NOTE: Uncomment if used in a Ruby project
+# echo "$TAG_NAME" | sed 's/^v//' > lib/<NAME>/VERSION
+# git add lib/<NAME>/VERSION
+# git commit -m "Update <NAME>::VERSION"
+
 if git config core.commentChar; then
 	HAD_COMMENT_CHAR=1
 	COMMENT_CHAR=$(git config --get core.commentChar)
