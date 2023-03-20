@@ -34,22 +34,7 @@ RELEASESH_PRERELEASE=${RELEASESH_PRERELEASE:-0}
 # git add lib/<NAME>/VERSION
 # git commit -m "Update <NAME>::VERSION"
 
-if git config core.commentChar; then
-	HAD_COMMENT_CHAR=1
-	COMMENT_CHAR=$(git config --get core.commentChar)
-else
-	HAD_COMMENT_CHAR=0
-fi
-
-git config core.commentChar ';'
-git tag -F RELEASE_NOTES $TAG_NAME $TAG_TARGET
-
-# Revert to original state
-if [ $HAD_COMMENT_CHAR -eq 1 ]; then
-	git config core.commentChar $COMMENT_CHAR
-else
-	git config --unset core.commentChar
-fi
+git tag -F RELEASE_NOTES --cleanup=verbatim $TAG_NAME $TAG_TARGET
 
 if [ $RELEASESH_PRERELEASE -eq 0 ]; then
 	echo > RELEASE_NOTES
