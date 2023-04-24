@@ -7,8 +7,9 @@ It pairs well with [this action][action].
 It starts with a `RELEASE_NOTES` file, in which I write notes for a pending
 release in Markdown format. When I'm ready to create a release, I run
 `release.sh tag-name`, which uses `RELEASE_NOTES` for the tag message. To
-support Markdown, it temporarily changes `core.commentChar` in the git
-configuration to `;`.
+support Markdown, it uses `--cleanup=verbatim` to use the exact text in
+`RELEASE_NOTES` as the commit message, including lines that start with
+`#`.
 
 When creating pre-releases, you can set `RELEASESH_PRERELEASE` to `1`.
 If you're *not* creating a pre-release, then the script will clear the contents
